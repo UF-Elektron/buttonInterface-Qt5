@@ -25,10 +25,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    ../../lisa_design/UIrework/src/buttonHandler.cpp \
+    ../../lisa_design/UIrework/src/ledHandler.cpp \
+    ../../lisa_design/UIrework/src/magnetHandler.cpp \
+    ../../lisa_design/UIrework/src/ui.cpp \
+    ../../lisa_design/UIrework/src/app_kplus.c \
+    ../../lisa_design/UIrework/src/flash.c \
+    ../../lisa_design/UIrework/src/oku.c \
+    ../../lisa_design/UIrework/src/registerFunctions.c
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    ../../lisa_design/UIrework/src/app_kplus.h \
+    ../../lisa_design/UIrework/src/binding.h \
+    ../../lisa_design/UIrework/src/buttonHandler.h \
+    ../../lisa_design/UIrework/src/flash.h \
+    ../../lisa_design/UIrework/src/ledHandler.h \
+    ../../lisa_design/UIrework/src/magnetHandler.h \
+    ../../lisa_design/UIrework/src/main.h \
+    ../../lisa_design/UIrework/src/oku.h \
+    ../../lisa_design/UIrework/src/registerFunctions.h \
+    ../../lisa_design/UIrework/src/ui.h
 
 FORMS += \
         mainwindow.ui
