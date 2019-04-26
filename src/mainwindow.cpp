@@ -16,31 +16,106 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-    std::clog << "left button clicked\n";
-}
-
-void MainWindow::on_pushButton_pressed()
-{
-    timer.start(100, this);
-    std::clog << "left button pressed\n";
-}
-
-void MainWindow::on_pushButton_released()
-{
-    timer.stop();
-    std::clog << "left button released\n";
-}
-
 void MainWindow::timerEvent(QTimerEvent *event)
 {
-    std::clog << "timer event\n";
+//    std::clog << "timer event\n";
     if (event->timerId() == timer.timerId()) {
         ++step;
     } else {
         std::clog << "?? ??\n";
         QWidget::timerEvent(event);
     }
-    std::clog << "Step: "<< step <<"\n";
+//    std::clog << "Step: "<< step <<"\n";
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+
+}
+
+void MainWindow::on_pushButton_pressed()
+{
+    step = 0;
+    timer.start(100, this);
+}
+
+void MainWindow::on_pushButton_released()
+{
+    timer.stop();
+    if(step < 3) {
+        std::clog << "PB_A1 short press\n";
+    } else if(step >= 3) {
+        std::clog << "PB_A1 long press\n";
+    }
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+
+}
+
+void MainWindow::on_pushButton_5_pressed()
+{
+    step = 0;
+    timer.start(100, this);
+}
+
+void MainWindow::on_pushButton_5_released()
+{
+    timer.stop();
+    if(step < 3) {
+        std::clog << "PB_A2 short press\n";
+    } else if(step >= 3) {
+        std::clog << "PB_A2 long press\n";
+    }
+}
+
+
+void MainWindow::on_pushButton_4_pressed()
+{
+    step = 0;
+    timer.start(100, this);
+}
+
+
+void MainWindow::on_pushButton_4_released()
+{
+    timer.stop();
+    if(step < 3) {
+        std::clog << "PB_B1 short press\n";
+    } else if(step >= 3) {
+        std::clog << "PB_B1 long press\n";
+    }
+}
+
+void MainWindow::on_pushButton_6_pressed()
+{
+    step = 0;
+    timer.start(100, this);
+}
+
+void MainWindow::on_pushButton_6_released()
+{
+    timer.stop();
+    if(step < 3) {
+        std::clog << "PB_B2 short press\n";
+    } else if(step >= 3) {
+        std::clog << "PB_B2 long press\n";
+    }
+}
+
+void MainWindow::on_toolButton_pressed()
+{
+    step = 0;
+    timer.start(100, this);
+}
+
+void MainWindow::on_toolButton_released()
+{
+    timer.stop();
+    if(step < 3) {
+        std::clog << "Magnet short 'press'\n";
+    } else if(step >= 3) {
+        std::clog << "Magnet long 'press'\n";
+    }
 }
