@@ -35,6 +35,16 @@ int main(int argc, char *argv[])
 }
 
 #ifdef USE_LISA_CODE
+void buttonWrapper(int button, int step)
+{
+    UI::getInstance().test_buttonPress(button, step);
+}
+
+void magnetWrapper(int step)
+{
+    UI::getInstance().test_magnetPress(step);
+}
+
 void ProcessKplusRxFrame(int messageType)
 {
     int readData;
