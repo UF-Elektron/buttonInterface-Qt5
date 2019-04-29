@@ -18,6 +18,8 @@ void ProcessKplusRxFrame(int messageType);
 int main(int argc, char *argv[])
 {
 #ifdef USE_LISA_CODE
+    setbuf(stdout, NULL); /* Disable buffering for stdout to print from printf directly to console */
+
     std::clog << "Start of main: rework UI\n"
                  "----------------------------------------------\n\n";
 
