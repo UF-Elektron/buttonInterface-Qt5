@@ -56,7 +56,12 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QBasicTimer timer;
+    QBasicTimer timerM;
+    QBasicTimer timer1;
+    QBasicTimer timer4;
+    QBasicTimer timer5;
+    QBasicTimer timer6;
+    QBasicTimer timer7;
     int step;
     QBasicTimer globalTimer;
     int globalTicks;

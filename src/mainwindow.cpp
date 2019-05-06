@@ -21,7 +21,35 @@ MainWindow::~MainWindow()
 void MainWindow::timerEvent(QTimerEvent *event)
 {
 //    std::clog << "timer event\n";
-    if (event->timerId() == timer.timerId()) {
+    if (event->timerId() == timer1.timerId()) {
+        ++step;
+//        std::clog << "Step: "<< step <<"\n";
+        if(step >= 3) {
+                //        std::clog << "PB_A1 long press\n";
+                        buttonWrapper(0, 80);
+        }
+    } else if (event->timerId() == timer4.timerId()) {
+        ++step;
+//        std::clog << "Step: "<< step <<"\n";
+        if(step >= 3) {
+        //        std::clog << "PB_B1 long press\n";
+                buttonWrapper(2, 80);
+        }
+    } else if (event->timerId() == timer5.timerId()) {
+        ++step;
+        if(step >= 3) {
+        //        std::clog << "PB_A2 long press\n";
+                buttonWrapper(1, 80);
+        }
+//        std::clog << "Step: "<< step <<"\n";
+    } else if (event->timerId() == timer6.timerId()) {
+        ++step;
+//        std::clog << "Step: "<< step <<"\n";
+        if(step >= 3) {
+        //        std::clog << "PB_B2 long press\n";
+                buttonWrapper(3, 80);
+        }
+    } else if (event->timerId() == timer7.timerId()) {
         ++step;
 //        std::clog << "Step: "<< step <<"\n";
     } else if(event->timerId() == globalTimer.timerId()) {
@@ -32,8 +60,9 @@ void MainWindow::timerEvent(QTimerEvent *event)
            timerTick();
         }
 //        std::clog << "Step: "<< globalTicks <<"\n";
-    }
-    else {
+    } else if (event->timerId() == timerM.timerId()) {
+        ++step;
+    } else {
         std::clog << "?? timerID unknown ??\n";
         QWidget::timerEvent(event);
     }
@@ -47,20 +76,19 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_pressed()
 {
+//    std::clog << "PB_A1\n";
     step = 0;
-    timer.start(100, this);
+    timer1.start(100, this);
 }
 
 void MainWindow::on_pushButton_released()
 {
-    timer.stop();
+    timer1.stop();
     if(step < 3) {
 //        std::clog << "PB_A1 short press\n";
         buttonWrapper(0, 30);
-    } else if(step >= 3) {
-//        std::clog << "PB_A1 long press\n";
-        buttonWrapper(0, 80);
     }
+    buttonWrapper(0, 0);
 }
 
 void MainWindow::on_pushButton_5_clicked()
@@ -71,68 +99,62 @@ void MainWindow::on_pushButton_5_clicked()
 void MainWindow::on_pushButton_5_pressed()
 {
     step = 0;
-    timer.start(100, this);
+    timer5.start(100, this);
 }
 
 void MainWindow::on_pushButton_5_released()
 {
-    timer.stop();
+    timer5.stop();
     if(step < 3) {
 //        std::clog << "PB_A2 short press\n";
         buttonWrapper(1, 30);
-    } else if(step >= 3) {
-//        std::clog << "PB_A2 long press\n";
-        buttonWrapper(1, 80);
     }
+    buttonWrapper(1, 0);
 }
 
 
 void MainWindow::on_pushButton_4_pressed()
 {
     step = 0;
-    timer.start(100, this);
+    timer4.start(100, this);
 }
 
 
 void MainWindow::on_pushButton_4_released()
 {
-    timer.stop();
+    timer4.stop();
     if(step < 3) {
 //        std::clog << "PB_B1 short press\n";
         buttonWrapper(2, 30);
-    } else if(step >= 3) {
-//        std::clog << "PB_B1 long press\n";
-        buttonWrapper(2, 80);
     }
+        buttonWrapper(2, 0);
 }
 
 void MainWindow::on_pushButton_6_pressed()
 {
     step = 0;
-    timer.start(100, this);
+    timer6.start(100, this);
 }
 
 void MainWindow::on_pushButton_6_released()
 {
-    timer.stop();
+    timer6.stop();
     if(step < 3) {
 //        std::clog << "PB_B2 short press\n";
         buttonWrapper(3, 30);
-    } else if(step >= 3) {
-//        std::clog << "PB_B2 long press\n";
-        buttonWrapper(3, 80);
     }
+        buttonWrapper(3, 0);
 }
 
 void MainWindow::on_toolButton_pressed()
 {
     step = 0;
-    timer.start(100, this);
+    timerM.start(100, this);
 }
 
 void MainWindow::on_toolButton_released()
 {
-    timer.stop();
+    timerM.stop();
     if(step < 3) {
 //        std::clog << "Magnet short 'press'\n";
         magnetWrapper(200);
