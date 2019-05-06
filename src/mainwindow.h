@@ -44,10 +44,22 @@ private slots:
 
     void on_toolButton_released();
 
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_toolButton_clicked();
+
+    void on_pushButton_7_toggled(bool checked);
+
+    void on_pushButton_7_pressed();
+
 private:
     Ui::MainWindow *ui;
     QBasicTimer timer;
     int step;
+    QBasicTimer globalTimer;
+    int globalTicks;
 };
 
 #endif // MAINWINDOW_H

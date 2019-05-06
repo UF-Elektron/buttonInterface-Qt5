@@ -7,7 +7,8 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    step(0)
+    step{0},
+    globalTicks{0}
 {   
     ui->setupUi(this);
 }
@@ -22,16 +23,26 @@ void MainWindow::timerEvent(QTimerEvent *event)
 //    std::clog << "timer event\n";
     if (event->timerId() == timer.timerId()) {
         ++step;
-    } else {
-        std::clog << "?? ??\n";
+//        std::clog << "Step: "<< step <<"\n";
+    } else if(event->timerId() == globalTimer.timerId()) {
+        ++globalTicks;
+        if(globalTicks == 5) {
+           globalTicks = 0;
+           /* start UI timerticks */
+           timerTick();
+        }
+//        std::clog << "Step: "<< globalTicks <<"\n";
+    }
+    else {
+        std::clog << "?? timerID unknown ??\n";
         QWidget::timerEvent(event);
     }
-//    std::clog << "Step: "<< step <<"\n";
+
 }
 
 void MainWindow::on_pushButton_clicked()
 {
-
+    std::clog << "**************************\n";
 }
 
 void MainWindow::on_pushButton_pressed()
@@ -54,7 +65,7 @@ void MainWindow::on_pushButton_released()
 
 void MainWindow::on_pushButton_5_clicked()
 {
-
+    std::clog << "**************************\n";
 }
 
 void MainWindow::on_pushButton_5_pressed()
@@ -128,5 +139,39 @@ void MainWindow::on_toolButton_released()
     } else if(step >= 3) {
 //        std::clog << "Magnet long 'press'\n";
         magnetWrapper(800);
+    }
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    std::clog << "**************************\n";
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    std::clog << "**************************\n";
+}
+
+void MainWindow::on_toolButton_clicked()
+{
+    std::clog << "**************************\n";
+}
+
+void MainWindow::on_pushButton_7_toggled(bool checked)
+{
+
+}
+
+void MainWindow::on_pushButton_7_pressed()
+{
+    static bool checked = false;
+    if(checked) {
+        checked = false;
+        std::clog << "Stop timer\n";
+        globalTimer.stop();
+    } else {
+        checked = true;
+        std::clog << "Start timer\n";
+        globalTimer.start(100, this);
     }
 }

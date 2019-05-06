@@ -37,6 +37,11 @@ int main(int argc, char *argv[])
 }
 
 #ifdef USE_LISA_CODE
+void timerTick()
+{
+    UI::getInstance().timeoutTicks();
+}
+
 void buttonWrapper(int button, int step)
 {
     UI::getInstance().test_buttonPress(button, step);
