@@ -52,6 +52,11 @@ void magnetWrapper(int step)
     UI::getInstance().test_magnetPress(step);
 }
 
+void printLEDs(void)
+{
+    UI::getInstance().test_printLEDs();
+}
+
 void ProcessKplusRxFrame(int messageType)
 {
     int readData;

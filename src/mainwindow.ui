@@ -110,12 +110,25 @@
      <rect>
       <x>320</x>
       <y>80</y>
-      <width>87</width>
+      <width>81</width>
       <height>29</height>
      </rect>
     </property>
     <property name="text">
      <string>Timer</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_8">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>40</y>
+      <width>81</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ShowLED</string>
     </property>
    </widget>
   </widget>

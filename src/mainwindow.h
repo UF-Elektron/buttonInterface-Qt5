@@ -54,6 +54,8 @@ private slots:
 
     void on_pushButton_7_pressed();
 
+    void on_pushButton_8_pressed();
+
 private:
     Ui::MainWindow *ui;
     QBasicTimer timerM;

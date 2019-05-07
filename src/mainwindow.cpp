@@ -197,3 +197,9 @@ void MainWindow::on_pushButton_7_pressed()
         globalTimer.start(100, this);
     }
 }
+
+void MainWindow::on_pushButton_8_pressed()
+{
+    printLEDs();
+    std::clog << "**************************\n";
+}
