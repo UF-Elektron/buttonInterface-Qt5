@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     /* Initialize UI:
      * Set if C-Block sits on a Nebenstelle or on a Hauptstelle
      * Define the behavior of the buttons */
-    UI::getInstance().init(false, ButtonTypes::localButton, ButtonTypes::localButton, ButtonTypes::sceneButton, ButtonTypes::sceneButton);
+    UI::getInstance().init(2, 0x02, ButtonTypes::localButton, ButtonTypes::localButton, ButtonTypes::localButton, ButtonTypes::localButton);
 #endif
 
     QApplication a(argc, argv);

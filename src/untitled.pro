@@ -33,7 +33,9 @@ SOURCES += \
     ../../lisa_design/UIrework/src/app_kplus.c \
     ../../lisa_design/UIrework/src/flash.c \
     ../../lisa_design/UIrework/src/oku.c \
-    ../../lisa_design/UIrework/src/registerFunctions.c
+    ../../lisa_design/UIrework/src/registerFunctions.c \
+    ../../lisa_design/UIrework/src/uiTimer.cpp \
+    ../../lisa_design/UIrework/src/cmdMatrix.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -46,7 +48,9 @@ HEADERS += \
     ../../lisa_design/UIrework/src/main.h \
     ../../lisa_design/UIrework/src/oku.h \
     ../../lisa_design/UIrework/src/registerFunctions.h \
-    ../../lisa_design/UIrework/src/ui.h
+    ../../lisa_design/UIrework/src/ui.h \
+    ../../lisa_design/UIrework/src/uiTimer.h \
+    ../../lisa_design/UIrework/src/cmdMatrix.h
 
 FORMS += \
         mainwindow.ui
